@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -141,20 +144,45 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\api\AuthorsController.cs" />
+    <Compile Include="Controllers\api\BooksController.cs" />
+    <Compile Include="Controllers\api\LanguagesController.cs" />
+    <Compile Include="Controllers\api\NationalitiesController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Dtos\AuthorDto.cs" />
+    <Compile Include="Dtos\BookDto.cs" />
+    <Compile Include="Dtos\LanguageDto.cs" />
+    <Compile Include="Dtos\NationalityDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Author.cs">
+      <DependentUpon>LibrarySystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Book.cs">
+      <DependentUpon>LibrarySystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Language.cs">
+      <DependentUpon>LibrarySystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LibrarySystem.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LibrarySystem.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LibrarySystem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibrarySystem.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LibrarySystem.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LibrarySystem.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Nationality.cs">
+      <DependentUpon>LibrarySystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -170,6 +198,12 @@
     <Content Include="Models\LibrarySystem.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LibrarySystem.Context.cs</LastGenOutput>
+      <DependentUpon>LibrarySystem.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\LibrarySystem.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LibrarySystem.edmx</DependentUpon>
+      <LastGenOutput>LibrarySystem.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -177,9 +211,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LibrarySystem.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\LibrarySystem.edmx.diagram">
+    <Content Include="Models\LibrarySystem.edmx.diagram">
       <DependentUpon>LibrarySystem.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
