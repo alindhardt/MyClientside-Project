@@ -13,5 +13,11 @@ namespace MyClientside_Project.Controllers
         {
             return View();
         }
+
+        public ActionResult Details(int id = 1)
+        {
+            ViewBag.Id = id;
+            return View();
+        }
     }
 }

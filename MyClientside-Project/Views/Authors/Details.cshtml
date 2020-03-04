@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Details</title>
+</head>
+<body>
+    <div style="width: 50%;">
+        <h3>Author Details</h3>
+        <div style="display: block">
+            <div style="width: 100px; display: inline-block">First Name</div>
+            <div id="firstName" style="width: 30%; display: inline-block"></div>
+        </div>
+
+        <div style="display: block">
+            <div style="width: 100px; display: inline-block">Last Name</div>
+            <div id="lastName" style="width: 30%; display: inline-block"></div>
+        </div>
+
+        <div style="display: block">
+            <div style="width: 100px; display: inline-block">Nationality</div>
+            <div id="nationality" style="width: 30%; display: inline-block"></div>
+        </div>
+    </div>
+
+    <script src="../../Scripts/jquery-3.3.1.min.js"></script>
+    <script>
+        $( document ).ready(function() {
+            var jqxhr = $.get( "/api/authors/" + @ViewBag.Id, function() {
+              //alert( "success" );
+            })
+              .done(function(data) {
+                  $("#firstName").append(data.FirstName);
+                  $("#lastName").append(data.LastName);
+                  $("#nationality").append(data.Nationality.Name);
+              })
+              .fail(function() {
+                alert( "error" );
+              })
+              .always(function() {
+                //alert( "finished" );
+              });
+        });
+
+    </script>
+</body>
+</html>

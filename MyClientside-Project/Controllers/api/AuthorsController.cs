@@ -35,7 +35,7 @@ namespace MyClientside_Project.Controllers.api
         [HttpGet]
         public IHttpActionResult GetAuthor(int id)
         {
-            var author = db.Authors.SingleOrDefault(a => a.Id == id);
+            var author = db.Authors.Include(a => a.Nationality).SingleOrDefault(a => a.Id == id);
 
             if (author == null) return NotFound();
 
